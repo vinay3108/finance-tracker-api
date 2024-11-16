@@ -5,12 +5,13 @@ const app = express();
 
 dotenv.config()
 
-const port = process.env.PORT || 5006;
+const port = process.env.PORT || 5010;
 const startApp = async () => {
     try {
 
         const dbConnection = await connectMySql();
-        console.log("Database connected:", dbConnection.isInitialized);
+        console.log("🚀 ~ startApp ~ dbConnection:", dbConnection)
+        // console.log("Database connected:", dbConnection.isInitialized);
 
         app.get('/',(req,res)=>{
             res.send("hello");
