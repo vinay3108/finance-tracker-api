@@ -12,6 +12,7 @@ export const connectMySql = async () => {
     try {
         // const dataSource = await MySqlDataSource.initialize();
         console.log("Data Source has been initialized!--------------------");
+        
         return true; // Return the connected instance
     } catch (err) {
         console.error("Error during Data Source initialization", err);
