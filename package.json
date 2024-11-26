@@ -3,12 +3,11 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
-  "type": "module",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "prebuild": "tslint -c tslint.json -p tsconfig.json --fix",
     "build": "tsc",
-    "dev": "concurrently \"npx tsc --watch\" \"nodemon -q build/index.js\"",
+    "dev": "nodemon --watch . --exec ts-node index.ts",
     "prestart": "npm run build",
     "start": "node ."
   },
@@ -21,7 +20,10 @@
     "concurrently": "^9.0.1",
     "dotenv": "^16.4.5",
     "express": "^4.21.1",
+    "mysql": "^2.18.1",
+    "mysql2": "^3.11.4",
     "nodemon": "^3.1.7",
+    "ts-node": "^10.9.2",
     "typeorm": "^0.3.20",
     "typescript": "^5.6.3"
   },

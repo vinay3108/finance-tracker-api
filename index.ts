@@ -1,6 +1,6 @@
 import express  from "express";
 import dotenv from 'dotenv';
-import {connectMySql} from "./db/db.connection";
+import mysqlConnection from "./db/db.connection";
 const app = express();
 
 dotenv.config()
@@ -9,7 +9,7 @@ const port = process.env.PORT || 5006;
 const startApp = async () => {
     try {
 
-        const dbConnection = await connectMySql();
+        const dbConnection = await mysqlConnection.initialize();;
         console.log("Database connected:", dbConnection.isInitialized);
 
         app.get('/',(req,res)=>{

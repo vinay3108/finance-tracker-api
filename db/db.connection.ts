@@ -1,20 +1,14 @@
 import { DataSource } from "typeorm";
 
-const MySqlDataSource = new DataSource({
+export default new DataSource({
     type: "mysql",
     host: process.env.MYSQL_HOST,
-    port: parseInt(process.env.MYSQL_PORT || "3306", 10),
-    username: process.env.MYSQL_USERNAME,
-    password: process.env.MYSQL_PASSWORD,
-    database: process.env.MYSQL_DATABASE,
+    port: 3306,
+    username: 'vinay',
+    password: "Vinay@123",
+    database:'finance_management',
+    entities: ["./entities/*.ts"], // Path to your entity files
+    migrations: ["./migrations/*.ts"], // Path to your migration files
+    synchronize: false, // Ensure this is false to use migrations
+    logging: true, // Enables logging for debugging
 })
-export const connectMySql = async () => {
-    try {
-        const dataSource = await MySqlDataSource.initialize();
-        console.log("Data Source has been initialized!");
-        return dataSource; // Return the connected instance
-    } catch (err) {
-        console.error("Error during Data Source initialization", err);
-        throw err; // Rethrow the error to ensure the caller is aware of the failure
-    }
-};
