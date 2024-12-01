@@ -1,4 +1,5 @@
 import { DataSource } from "typeorm";
+import { User } from "../src/User/Model/user.model";
 
 export default new DataSource({
     type: "mysql",
@@ -7,8 +8,8 @@ export default new DataSource({
     username: 'vinay',
     password: "Vinay@123",
     database:'finance_management',
-    entities: ["./entities/*.ts"], // Path to your entity files
-    migrations: ["./migrations/*.ts"], // Path to your migration files
-    synchronize: false, // Ensure this is false to use migrations
-    logging: true, // Enables logging for debugging
+    entities: [User],
+    migrations: ["./migrations/*.ts"],
+    synchronize: true, 
+    logging: true,
 })
