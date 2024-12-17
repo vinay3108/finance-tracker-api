@@ -18,3 +18,16 @@ export const createUserValidation = Joi.object({
     }),
     role:Joi.string()
 });
+
+export const loginUserValidation = Joi.object({
+    email: Joi.string().email().required().messages({
+    'string.email': 'Email must be a valid email address.',
+    'any.required': 'Email is required.'
+    }),
+    password: Joi.string().min(6).max(20).required().messages({
+    'string.base': 'Password should be a string.',
+    'string.min': 'Password should have at least 6 characters.',
+    'string.max': 'Password should have at most 20 characters.',
+    'any.required': 'Password is required.'
+    }),
+});

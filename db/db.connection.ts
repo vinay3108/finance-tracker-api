@@ -11,5 +11,5 @@ export default new DataSource({
     entities: [User],
     migrations: ["./migrations/*.ts"],
     synchronize: true, 
-    logging: true,
+    // logging: true,
 })

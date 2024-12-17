@@ -14,8 +14,8 @@ export class User {
     @Column()
     password: string
 
-    @Column()
-    role: string
+    @Column({default: 'member'})
+    role?: string
 
     @CreateDateColumn()
     created_at: Date;
